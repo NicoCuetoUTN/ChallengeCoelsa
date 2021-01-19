@@ -1,0 +1,87 @@
+<div class="form-group">
+    <button  [routerLink]="['../']">
+        Back
+    </button>
+    <button  (click)="submit()">
+        Save
+    </button>
+</div>
+
+<div class="form-group">
+    <label for="firstName">First Name</label>
+    <div *ngIf="errors['firstName']">
+        <span class="text-danger">{{ errors['firstName'] }}</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      required
+      [(ngModel)]="model.firstName"
+      name="firstName"
+    />
+  </div>
+  
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <div *ngIf="errors['lastName']">
+        <span class="text-danger">{{ errors['lastName'] }}</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      required
+      [(ngModel)]="model.lastName"
+      [value]="model.lastName"
+      name="lastName"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="company">Company</label>
+    <div *ngIf="errors['company']">
+        <span class="text-danger">{{ errors['company'] }}</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="company"
+      required
+      [(ngModel)]="model.company"
+      [value]="model.company"
+      name="company"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div *ngIf="errors['email']">
+        <span class="text-danger">{{ errors['email'] }}</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      required
+      [(ngModel)]="model.email"
+      [value]="model.email"
+      name="email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <div *ngIf="errors['phoneNumber']">
+        <span class="text-danger">{{ errors['phoneNumber'] }}</span>
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      id="phoneNumber"
+      required
+      [(ngModel)]="model.phoneNumber"
+      [value]="model.phoneNumber"
+      name="phoneNumber"
+    />
+  </div>
