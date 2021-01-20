@@ -38,46 +38,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\.editorconfig" />
-    <None Remove="ClientApp\.gitignore" />
-    <None Remove="ClientApp\angular.json" />
-    <None Remove="ClientApp\browserslist" />
-    <None Remove="ClientApp\e2e\protractor.conf.js" />
-    <None Remove="ClientApp\e2e\src\app.e2e-spec.ts" />
-    <None Remove="ClientApp\e2e\src\app.po.ts" />
-    <None Remove="ClientApp\e2e\tsconfig.e2e.json" />
-    <None Remove="ClientApp\package-lock.json" />
-    <None Remove="ClientApp\package.json" />
-    <None Remove="ClientApp\README.md" />
-    <None Remove="ClientApp\src\app\app.component.html" />
-    <None Remove="ClientApp\src\app\app.component.ts" />
-    <None Remove="ClientApp\src\app\app.module.ts" />
-    <None Remove="ClientApp\src\app\app.server.module.ts" />
-    <None Remove="ClientApp\src\app\counter\counter.component.html" />
-    <None Remove="ClientApp\src\app\counter\counter.component.spec.ts" />
-    <None Remove="ClientApp\src\app\counter\counter.component.ts" />
-    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.html" />
-    <None Remove="ClientApp\src\app\fetch-data\fetch-data.component.ts" />
-    <None Remove="ClientApp\src\app\home\home.component.html" />
-    <None Remove="ClientApp\src\app\home\home.component.ts" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.css" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.html" />
-    <None Remove="ClientApp\src\app\nav-menu\nav-menu.component.ts" />
-    <None Remove="ClientApp\src\assets\.gitkeep" />
-    <None Remove="ClientApp\src\environments\environment.prod.ts" />
-    <None Remove="ClientApp\src\environments\environment.ts" />
-    <None Remove="ClientApp\src\index.html" />
-    <None Remove="ClientApp\src\karma.conf.js" />
-    <None Remove="ClientApp\src\main.ts" />
-    <None Remove="ClientApp\src\polyfills.ts" />
-    <None Remove="ClientApp\src\styles.css" />
-    <None Remove="ClientApp\src\test.ts" />
-    <None Remove="ClientApp\src\tsconfig.app.json" />
-    <None Remove="ClientApp\src\tsconfig.server.json" />
-    <None Remove="ClientApp\src\tsconfig.spec.json" />
-    <None Remove="ClientApp\src\tslint.json" />
-    <None Remove="ClientApp\tsconfig.json" />
-    <None Remove="ClientApp\tslint.json" />
+    <None Remove="ClientApp\.vscode\launch.json" />
+    <None Remove="ClientApp\debug.log" />
+    <None Remove="ClientApp\src\app\infraestructure\model\interfaces\backend-response.interface.ts" />
+    <None Remove="ClientApp\src\app\infraestructure\model\interfaces\contact.interface.ts" />
+    <None Remove="ClientApp\src\app\infraestructure\services\contact.service.ts" />
+    <None Remove="ClientApp\src\app\public\contact\contact-list.component.css" />
+    <None Remove="ClientApp\src\app\public\contact\contact-list.component.html" />
+    <None Remove="ClientApp\src\app\public\contact\contact-list.component.ts" />
+    <None Remove="ClientApp\src\app\public\contact\createOrEdit\createOrEdit-contact.component.html" />
+    <None Remove="ClientApp\src\app\public\contact\createOrEdit\createOrEdit-contact.component.ts" />
+    <None Remove="ClientApp\src\app\public\home\home.component.html" />
+    <None Remove="ClientApp\src\app\public\home\home.component.ts" />
+    <None Remove="ClientApp\src\app\public\nav-menu\nav-menu.component.css" />
+    <None Remove="ClientApp\src\app\public\nav-menu\nav-menu.component.html" />
+    <None Remove="ClientApp\src\app\public\nav-menu\nav-menu.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

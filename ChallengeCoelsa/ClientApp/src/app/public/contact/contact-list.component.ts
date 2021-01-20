@@ -8,16 +8,16 @@ import { ContactService } from 'src/app/infraestructure/services/contact.service
   templateUrl: './Contact-list.component.html'
 })
 export class ContactListComponent implements OnInit {
-  public contacts: Contact[];
+  public model: Contact[];
 
   constructor(private contactService: ContactService,
     private router: Router,
     private aRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.contactService.get()
-      .subscribe((data: any) => {
-        this.contacts = data.value;
+    this.contactService.getAll()
+      .subscribe((data: Contact[]) => {
+        this.model = data;
       });
   }
 
@@ -28,7 +28,6 @@ export class ContactListComponent implements OnInit {
 
   deleteContact(modelId: string){
     this.contactService.delete(modelId).subscribe(data => data);
-
   }
 }
 

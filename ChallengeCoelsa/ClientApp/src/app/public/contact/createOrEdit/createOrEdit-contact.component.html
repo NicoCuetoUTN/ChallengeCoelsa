@@ -1,10 +1,19 @@
-<div class="form-group">
-    <button  [routerLink]="['../']">
-        Back
+<div class="row top-section-container">
+  <div class="col-md-6">
+    <h2 *ngIf="isNew"> Create Contact </h2>
+    <h2 *ngIf="!isNew"> Edit Contact </h2>
+  </div>
+  <div class="col-md-6">
+    <button type="button" class="btn btn-success mr-2 float-right" [routerLink]="['/contacts']">
+      Back
     </button>
-    <button  (click)="submit()">
-        Save
+    <button *ngIf="!isNew" type="button" class="btn btn-success mr-2 float-right" (click)="submit()">
+      Edit
     </button>
+    <button *ngIf="isNew" type="button" class="btn btn-success mr-2 float-right" (click)="submit()">
+      Create
+    </button>
+  </div>
 </div>
 
 <div class="form-group">

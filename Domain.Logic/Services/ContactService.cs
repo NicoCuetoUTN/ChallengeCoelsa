@@ -2,6 +2,7 @@
 using Domain.Logic.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Domain.Logic.Services
@@ -28,13 +29,47 @@ namespace Domain.Logic.Services
 
         public IQueryable<Contact> GetAll()
         {
-            var pepe = this.dbContext.Set<Contact>();
-            return pepe;
+            Contact contact1 = new Contact()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Nicolas",
+                LastName = "Cueto",
+                Company = "BINIT",
+                Email = "ncueto@gmail.com",
+                PhoneNumber = "1139146755"
+            };
+            Contact contact2 = new Contact()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Lucia",
+                LastName = "Osimani",
+                Company = "BINIT",
+                Email = "losimani@gmail.com",
+                PhoneNumber = "1139145677"
+            };
+
+            List<Contact> list = new List<Contact>();
+
+            list.Add(contact1);
+            list.Add(contact2);
+
+            return list.AsQueryable();
+
+            //return = this.dbContext.Set<Contact>();
         }
 
         public Contact GetById(Guid id)
         {
-            return this.dbContext.Set<Contact>().Find(id);
+            return new Contact()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Nicolas",
+                LastName = "Cueto",
+                Company = "BINIT",
+                Email = "ncueto@gmail.com",
+                PhoneNumber = "1139146755"
+            };
+            //return this.dbContext.Set<Contact>().Find(id);
         }
 
         public bool Delete(Guid id)
@@ -49,6 +84,5 @@ namespace Domain.Logic.Services
             var result =  this.dbContext.Set<Contact>().Add(contact);
             return result != null;
         }
-
     }
 }

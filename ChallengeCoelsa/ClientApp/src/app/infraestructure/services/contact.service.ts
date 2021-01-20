@@ -19,11 +19,18 @@ export class ContactService {
   //   return this.http.get<BackEndResponse>(this.baseUrl + this.apiURL);
   // }
 
-  get(): Observable<BackEndResponse> {
-    return this.http.get<BackEndResponse>(this.baseUrl + this.apiURL).pipe(
+  getAll(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(this.baseUrl + this.apiURL).pipe(
      catchError((err) => this.handleError(err))
     );
  }
+
+ getById(modelId : string): Observable<Contact> {
+  const url = `${this.baseUrl}${this.apiURL}/GetById/${modelId}`;
+  return this.http.get<Contact>(url).pipe(
+   catchError((err) => this.handleError(err))
+  );
+}
 
   // post(model: Contact): Observable<BackEndResponse> {
   //   return this.http.post<BackEndResponse>(this.baseUrl + this.apiURL, model);
@@ -40,7 +47,7 @@ export class ContactService {
  }
 
   delete(modelId: string): Observable<BackEndResponse> {
-    return this.http.delete<BackEndResponse>(this.baseUrl + this.apiURL + modelId)
+    return this.http.delete<BackEndResponse>(this.baseUrl + this.apiURL + '/Delete/' + modelId)
     .pipe(map((response) => response));
     
  }

@@ -30,6 +30,23 @@ public class ContactController : Controller
         }
     }
 
+    // GET api/values
+    [HttpGet]
+    [Route("GetById/{contactId}")]
+
+    public JsonResult GetById(string contactId)
+    {
+        try
+        {
+            Contact contact = this._contactService.GetById(Guid.Parse(contactId));
+            return new JsonResult(contact);
+        }
+        catch (Exception ex)
+        {
+            return new JsonResult(StatusCode(500, $"Something went wrong: {ex.Message}"));
+        }
+    }
+
     [HttpPost]
     public JsonResult Post([FromBody] ContactDTO model)
     {
@@ -45,6 +62,7 @@ public class ContactController : Controller
     }
 
     [HttpDelete]
+    [Route("Delete/{contactId}")]
     public JsonResult Delete(Guid contactId)
     {
         try
