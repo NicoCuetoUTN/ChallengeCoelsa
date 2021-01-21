@@ -21,8 +21,8 @@ public class ContactController : Controller
     {
         try
         {
-            IQueryable<Contact> contacts = this._contactService.GetAll();
-            return new JsonResult(contacts);
+            IQueryable<ContactDTO> contactDtos = this._contactService.GetAll().Select(c => new ContactDTO(c));
+            return new JsonResult(contactDtos);
         }
         catch (Exception ex)
         {
@@ -38,7 +38,7 @@ public class ContactController : Controller
     {
         try
         {
-            Contact contact = this._contactService.GetById(Guid.Parse(contactId));
+            ContactDTO contact = new ContactDTO(this._contactService.GetById(Guid.Parse(contactId)));
             return new JsonResult(contact);
         }
         catch (Exception ex)
@@ -50,10 +50,14 @@ public class ContactController : Controller
     [HttpPost]
     public JsonResult Post([FromBody] ContactDTO model)
     {
+        bool succeed;
         try
         {
-            bool created = this._contactService.Create(model.ToEntity(model));
-            return new JsonResult(created);
+            if (model.Id.HasValue)
+                succeed = this._contactService.Update(model.ToEntity(model));
+            else
+                succeed = this._contactService.Create(model.ToEntity(model));
+            return new JsonResult(succeed);
         }
         catch (Exception ex)
         {

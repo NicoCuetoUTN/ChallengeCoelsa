@@ -27,62 +27,63 @@ namespace Domain.Logic.Services
 
         #endregion
 
-        public IQueryable<Contact> GetAll()
-        {
-            Contact contact1 = new Contact()
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Nicolas",
-                LastName = "Cueto",
-                Company = "BINIT",
-                Email = "ncueto@gmail.com",
-                PhoneNumber = "1139146755"
-            };
-            Contact contact2 = new Contact()
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Lucia",
-                LastName = "Osimani",
-                Company = "BINIT",
-                Email = "losimani@gmail.com",
-                PhoneNumber = "1139145677"
-            };
-
-            List<Contact> list = new List<Contact>();
-
-            list.Add(contact1);
-            list.Add(contact2);
-
-            return list.AsQueryable();
-
-            //return = this.dbContext.Set<Contact>();
-        }
+        public IQueryable<Contact> GetAll() => this.dbContext.Set<Contact>();
 
         public Contact GetById(Guid id)
         {
-            return new Contact()
+            try
             {
-                Id = Guid.NewGuid(),
-                FirstName = "Nicolas",
-                LastName = "Cueto",
-                Company = "BINIT",
-                Email = "ncueto@gmail.com",
-                PhoneNumber = "1139146755"
-            };
-            //return this.dbContext.Set<Contact>().Find(id);
+                Contact result =  this.dbContext.Set<Contact>().Find(id);
+                return result;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool Delete(Guid id)
         {
-            Contact contact = this.GetById(id);
-            var result =  this.dbContext.Set<Contact>().Remove(contact);
-            return result != null;
+            try
+            {
+                Contact contact = this.GetById(id);
+                this.dbContext.Remove(contact);
+                this.dbContext.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool Create(Contact contact)
         {
-            var result =  this.dbContext.Set<Contact>().Add(contact);
-            return result != null;
+            try
+            {
+                this.dbContext.Set<Contact>().Add(contact);
+                this.dbContext.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            
+        }
+
+        public bool Update(Contact contact)
+        {
+            try
+            {
+                this.dbContext.Update(contact);
+                this.dbContext.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

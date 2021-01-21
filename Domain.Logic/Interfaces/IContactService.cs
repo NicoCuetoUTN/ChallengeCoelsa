@@ -10,6 +10,8 @@ namespace Domain.Logic.Interfaces
 
         bool Create(Contact contact);
 
+        bool Update(Contact contact);
+
         bool Delete(Guid contactId);
 
         Contact GetById(Guid contactId);

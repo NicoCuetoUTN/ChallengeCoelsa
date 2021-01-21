@@ -27,8 +27,7 @@ export class ContactListComponent implements OnInit {
   }
 
   deleteContact(modelId: string){
-    this.contactService.delete(modelId).subscribe(data => data);
+    this.contactService.delete(modelId).subscribe((data) => data && window.location.reload());
   }
+
 }
-
-
