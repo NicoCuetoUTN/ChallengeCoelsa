@@ -14,11 +14,6 @@ export class ContactService {
 
   constructor(private http: HttpClient) { }
 
-  // get(): Observable<any> {
-  //   // return this.http.get(this.baseUrl + "/GetAll").pipe(response => response.data)
-  //   return this.http.get<BackEndResponse>(this.baseUrl + this.apiURL);
-  // }
-
   getAll(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.baseUrl + this.apiURL).pipe(
      catchError((err) => this.handleError(err))
@@ -31,10 +26,6 @@ export class ContactService {
    catchError((err) => this.handleError(err))
   );
 }
-
-  // post(model: Contact): Observable<BackEndResponse> {
-  //   return this.http.post<BackEndResponse>(this.baseUrl + this.apiURL, model);
-  // }
 
   post(model: Contact): Observable<BackEndResponse> {
     const result = {
