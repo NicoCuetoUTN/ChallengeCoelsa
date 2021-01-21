@@ -14,8 +14,6 @@ public class ContactController : Controller
         _contactService = contactService;
     }
 
-
-    // GET api/values
     [HttpGet]
     public JsonResult Get()
     {
@@ -30,7 +28,6 @@ public class ContactController : Controller
         }
     }
 
-    // GET api/values
     [HttpGet]
     [Route("GetById/{contactId}")]
 
